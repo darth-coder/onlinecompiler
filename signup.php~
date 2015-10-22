@@ -1,0 +1,39 @@
+<?php
+$conn = mysqli_connect("localhost","root","rengarajan","online_compiler");
+
+// Check connection
+if (mysqli_connect_errno()) {
+	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+	$name = 'klk';
+	$email = 'klk';
+	$pass = 'klk';
+	$confPass = 'klk';
+
+
+	/*if(isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputPassword']) isset($_POST['$conpasswd'])) {
+ 		$name = $_POST['inputName'];
+		$email = $_POST['inputEmail'];
+		$pass = $_POST['inputPassword'];
+		$confPass = $_POST['$conpasswd'];
+	}*/
+
+	$sql = "INSERT INTO userDB (username, emailid, password) VALUES ('$name', '$email', '$pass')";
+	$result = $conn->query($sql);
+
+	if($result === TRUE)
+		echo "Ok";
+	else
+		echo "Username exists. Script exits."
+
+	/*if ($result->num_rows > 0) {
+	    	// output data of each row
+		while($row = $result->fetch_assoc()) {}
+
+	} else {
+	    echo "0 results";
+	}*/
+
+	$conn->close();
+?>
